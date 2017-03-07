@@ -10,7 +10,7 @@ public class GameConsole {
 	static Scanner input = new Scanner(System.in);
 
 	public GameConsole() {
-		
+
 	}
 
 	/**
@@ -20,15 +20,13 @@ public class GameConsole {
 	 */
 	public void play(GuessingGame game) {
 		int ans;
-		boolean isRight = false;
+		boolean isWrong = true;
 		System.out.print(game.getHint());
-		while (isRight == false) {
+		while (isWrong) {
 			System.out.print("What is your guess?");
 			ans = input.nextInt();
-			isRight = game.guess(ans);
+			isWrong = !game.guess(ans);
 			System.out.println(game.getHint());
-			game.getCount();
-
 		}
 		System.out.println("The secret number is " + game.secret);
 		System.out.printf("You used %d guesses.\n", game.getCount());
