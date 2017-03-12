@@ -38,6 +38,12 @@ public class GuessingGame {
 		Random rand = new Random(seed);
 		return rand.nextInt(limit) + 1;
 	}
+	
+	public void newRandom(){
+		long seed = System.currentTimeMillis();
+		Random rand = new Random(seed);
+		this.secret = rand.nextInt(upperbound) + 1;
+	}
 
 	/**
 	 * Return a hint based on the most recent guess and count the guess.
